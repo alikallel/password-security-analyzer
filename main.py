@@ -10,6 +10,7 @@ def main():
         choice = get_user_input()
         if choice.lower() == 'q':
             print("\nThank you for using the password checker. Goodbye!")
+            print("\nExiting the Security Checker Tool. Stay safe!")
             break  # Exit the loop if user chooses 'q'
         
         elif choice == '1':
@@ -40,6 +41,7 @@ def main():
         
         elif choice == '3':
             password = input("Enter password to suggest improvements: ")
+            print("\nGenerating stronger password...")
             stronger_password = checker.suggest_stronger(password)
             print(f"\nSuggested stronger password: {stronger_password}")
         

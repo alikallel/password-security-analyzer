@@ -29,5 +29,5 @@ def get_user_input():
     print("1. Check password strength")
     print("2. Check if email is breached")
     print("3. Suggest stronger password")
-    choice = input("Enter your choice (1/2/3): ")
+    choice = input("Enter your choice (1/2/3/Q): ")
     return choice
