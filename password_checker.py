@@ -5,6 +5,7 @@ import string
 from collections import Counter
 from pathlib import Path
 import requests
+import math
 
 class PasswordChecker:
     def __init__(self, wordlist_paths=None, password_history=None):
@@ -176,6 +177,8 @@ class PasswordChecker:
         ]
         return any(re.search(pattern, password) for pattern in common_patterns)
 
+    import math  # Ensure math is imported at the top of your file
+
     def _calculate_shannon_entropy(self, password):
         """Calculate Shannon entropy for the password."""
         if not password:
@@ -186,7 +189,7 @@ class PasswordChecker:
         char_counts = Counter(password)
         for count in char_counts.values():
             prob = count / length
-            entropy -= prob * (prob.bit_length() or 1)
+            entropy -= prob * math.log2(prob)  # Use log2 for Shannon entropy calculation
 
         return round(entropy * 100 / 8, 2)  # Normalize to a scale of 0-100
 
