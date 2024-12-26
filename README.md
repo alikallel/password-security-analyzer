@@ -32,17 +32,6 @@ A security tool built to check password strength, verify passwords against breac
 
 ---
 
-
-
-### 📊 Password Check Results
-* **is_strong**: Boolean indicating password strength
-* **issues**: List of password issues (missing character types, common patterns, etc.)
-* **suggestions**: List of password improvement suggestions
-* **entropy_score**: Numeric score for password strength (0-100)
-* **wordlist_check**: Dictionary with breach check results from wordlists
-
----
-
 ## 🔧 Technical Details
 
 ### Password Strength Checker Class
