@@ -8,6 +8,18 @@ def print_banner():
 /    |    \ /_____/ |    |  \    \     /  / __ \|  |  /  |_|  |  
 \____|__  /         |____|__ \    \___/  (____  /____/|____/__|  
         \/                  \/                \/                 
+    
+        
+  
+    ╔═══════════════════════════════════════╗
+    ║ Security Checker Tool A-K Vault v1.0  ║
+    ╠═══════════════════════════════════════╣
+    ║ 1. Check Password Strength            ║
+    ║ 2. Check Email for Data Breaches      ║
+    ║ 3. Get Password Suggestions           ║
+    ║ Q. Quit                               ║
+    ╚═══════════════════════════════════════╝
+    
     """
     print(banner)
 
