@@ -7,7 +7,11 @@ def main():
     checker = PasswordChecker()  # Initialize our password checker
     
     choice = get_user_input()
-    if choice == '1':
+    if choice.lower() == 'q':
+            print("\nThank you for using the password checker. Goodbye!")
+            break
+    
+    elif choice == '1':
         password = input("Enter password to check: ")
         result = checker.check_strength(password)
         
