@@ -49,6 +49,5 @@ A security tool built to check password strength, verify passwords against breac
 * **HackCheck API** for breach checking.
 * **hash-identifier** tool for hash identification.
 
-<div align="center">
-  <sub> This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details. </sub>
-</div>
+
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
