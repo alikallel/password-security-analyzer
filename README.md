@@ -53,4 +53,6 @@ A security tool built to check password strength, verify passwords against breac
 ### Email Breach Checker
 * **check_email_breach(email)** - Uses HackCheck API to check email against known data breaches
 
-
+<div align="center">
+  <sub> This project is licensed under the MIT License </sub>
+</div>
