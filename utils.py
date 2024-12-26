@@ -17,6 +17,7 @@ def print_banner():
     ║ 1. Check Password Strength            ║
     ║ 2. Check Email for Data Breaches      ║
     ║ 3. Get Password Suggestions           ║
+    ║ 4. Identify Hash Type                 ║
     ║ Q. Quit                               ║
     ╚═══════════════════════════════════════╝
     
@@ -29,5 +30,6 @@ def get_user_input():
     print("1. Check password strength")
     print("2. Check if email is breached")
     print("3. Suggest stronger password")
-    choice = input("Enter your choice (1/2/3/Q): ")
+    print("4. Identify hash type")
+    choice = input("Enter your choice (1/2/3/4/Q): ")
     return choice

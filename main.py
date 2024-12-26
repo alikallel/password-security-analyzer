@@ -44,7 +44,11 @@ def main():
             print("\nGenerating stronger password...")
             stronger_password = checker.suggest_stronger(password)
             print(f"\nSuggested stronger password: {stronger_password}")
-        
+            
+        elif choice == '4':
+            hash_input = input("Enter the hash to identify: ")
+            checker.identify_hash(hash_input)
+
         else:
             print("Invalid choice. Please choose 1, 2, or 3.")
 
