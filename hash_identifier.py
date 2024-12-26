@@ -6,8 +6,8 @@ class SecurityChecker:
         try:
             process = subprocess.run(
                 ["hash-identifier"],
-                input=hash_input.encode(),
-                text=True,
+                input=hash_input,
+                text=True,  
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE
             )
@@ -18,3 +18,4 @@ class SecurityChecker:
             print("Install it using: sudo apt install hash-identifier or clone it from GitHub.")
         except Exception as e:
             print(f"\nAn error occurred while identifying the hash: {e}")
+
