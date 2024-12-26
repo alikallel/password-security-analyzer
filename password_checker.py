@@ -4,6 +4,7 @@ import secrets
 import string
 from collections import Counter
 from pathlib import Path
+import requests
 
 class PasswordChecker:
     def __init__(self, wordlist_paths=None):
@@ -21,6 +22,25 @@ class PasswordChecker:
             "/usr/share/wordlists/fasttrack.txt",
             "/usr/share/wordlists/dirb/common.txt"
         ]
+        
+    def check_password_compromise(self, password):
+        """Check if password has been compromised using HaveIBeenPwned API."""    
+        sha1_hash = hashlib.sha1(password.encode('utf-8')).hexdigest().upper()
+        prefix, suffix = sha1_hash[:5], sha1_hash[5:]
+        
+        try:
+            url = f"https://api.pwnedpasswords.com/range/{prefix}"
+            response = requests.get(url, headers={"Add-Padding": "true"})
+            response.raise_for_status()
+            
+            for line in response.text.splitlines():
+                hash_suffix, count = line.split(":")
+                if hash_suffix == suffix:
+                    return True, int(count)
+            return False, 0
+            
+        except requests.RequestException as e:
+            return None, f"API error: {str(e)}"
         
     def check_strength(self, password):
         """
@@ -63,11 +83,15 @@ class PasswordChecker:
             
         # Calculate basic entropy score (0-100)
         entropy_score = self._calculate_entropy(password)
-        
+        is_compromised, count = self.check_password_compromise(password)
+        if is_compromised:
+            issues.append(f"Password found in {count} data breaches")
+            suggestions.append("Choose a password that hasn't been compromised")
+
         # Determine overall strength (now including wordlist check)
         is_strong = (len(issues) == 0 and 
                     entropy_score >= 70 and 
-                    not wordlist_result['found'])
+                    not wordlist_result['found'] and not is_compromised)
         
         return {
             'is_strong': is_strong,
