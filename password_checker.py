@@ -171,13 +171,11 @@ class PasswordChecker:
             r'qwerty',
             r'password',
             r'admin',
-            r'([a-zA-Z0-9])\1{2,}',  # Three or more repeated characters
-            r'\d{4}',  # Four consecutive numbers
+            r'([a-zA-Z0-9])\1{2,}', 
+            r'\d{4}', 
             r'(?i)pass'
         ]
         return any(re.search(pattern, password) for pattern in common_patterns)
-
-    import math  # Ensure math is imported at the top of your file
 
     def _calculate_shannon_entropy(self, password):
         """Calculate Shannon entropy for the password."""
@@ -189,9 +187,9 @@ class PasswordChecker:
         char_counts = Counter(password)
         for count in char_counts.values():
             prob = count / length
-            entropy -= prob * math.log2(prob)  # Use log2 for Shannon entropy calculation
+            entropy -= prob * math.log2(prob)  
 
-        return round(entropy * 100 / 8, 2)  # Normalize to a scale of 0-100
+        return round(entropy * 100 / 8, 2)  
 
     def suggest_stronger(self, password):
         """Suggest a stronger version of the given password."""
@@ -200,7 +198,6 @@ class PasswordChecker:
         if result['is_strong']:
             return password
 
-        # Add missing character types
         improved = password
         if not re.search(self.required_chars['uppercase'], improved):
             improved += secrets.choice(string.ascii_uppercase)
@@ -211,13 +208,10 @@ class PasswordChecker:
         if not re.search(self.required_chars['special'], improved):
             improved += secrets.choice('!@#$%^&*')
 
-        # Ensure minimum length
         while len(improved) < self.min_length:
             improved += secrets.choice(string.ascii_letters + string.digits + '!@#$%^&*')
 
-        # Verify the improved password isn't in wordlists
         if self.check_in_wordlists(improved)['found']:
-            # If it is, add some random characters to make it unique
             improved += ''.join(secrets.choice(string.ascii_letters + string.digits) 
                                 for _ in range(3))
 

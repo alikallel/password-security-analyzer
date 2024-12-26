@@ -4,7 +4,6 @@ class SecurityChecker:
     def identify_hash(self, hash_input):
         """Identify the type of hash using hash-identifier."""
         try:
-            # Call the hash-identifier script with the input hash
             process = subprocess.run(
                 ["hash-identifier"],
                 input=hash_input.encode(),
@@ -12,7 +11,6 @@ class SecurityChecker:
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE
             )
-            # Print the result
             print("\nHash-Identifier Output:")
             print(process.stdout)
         except FileNotFoundError:

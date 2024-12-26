@@ -1,12 +1,14 @@
 from utils import print_banner, get_user_input
 from password_checker import PasswordChecker
 from email_checker import check_email_breach
+from hash_identifier import SecurityChecker 
 
 def main():
-    print_banner()  # Display the custom ASCII banner
-    checker = PasswordChecker()  # Initialize our password checker
+    print_banner()  
+    checker = PasswordChecker()  
+    security_checker = SecurityChecker() 
     
-    while True:  # Loop to continuously ask for user input
+    while True:  
         choice = get_user_input()
         if choice.lower() == 'q':
             print("\nThank you for using the password checker. Goodbye!")
@@ -31,7 +33,6 @@ def main():
                 
                 print(f"\nEntropy Score: {result['entropy_score']}/100")
                 
-            # Print wordlist check results
             if result['wordlist_check']['found']:
                 print(f"\nWARNING: Password found in wordlist: {result['wordlist_check']['wordlist']}")
         
@@ -44,10 +45,10 @@ def main():
             print("\nGenerating stronger password...")
             stronger_password = checker.suggest_stronger(password)
             print(f"\nSuggested stronger password: {stronger_password}")
-            
+
         elif choice == '4':
             hash_input = input("Enter the hash to identify: ")
-            checker.identify_hash(hash_input)
+            security_checker.identify_hash(hash_input)
 
         else:
             print("Invalid choice. Please choose 1, 2, or 3.")
