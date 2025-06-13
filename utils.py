@@ -12,12 +12,13 @@ def print_banner():
         
   
     ╔═══════════════════════════════════════╗
-    ║ Security Checker Tool A-K Vault v1.0  ║
+    ║ Security Checker Tool A-K Vault v2.0  ║
     ╠═══════════════════════════════════════╣
     ║ 1. Check Password Strength            ║
     ║ 2. Check Email for Data Breaches      ║
     ║ 3. Get Password Suggestions           ║
     ║ 4. Identify Hash Type                 ║
+    ║ 5. Hydra Brute Force Attacks          ║
     ║ Q. Quit                               ║
     ╚═══════════════════════════════════════╝
     
@@ -31,5 +32,6 @@ def get_user_input():
     print("2. Check if email is breached")
     print("3. Suggest stronger password")
     print("4. Identify hash type")
-    choice = input("Enter your choice (1/2/3/4/Q): ")
+    print("5. Hydra brute force attacks")
+    choice = input("Enter your choice (1/2/3/4/5/Q): ")
     return choice
