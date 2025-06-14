@@ -26,7 +26,7 @@ A security tool built to check password strength, verify passwords against breac
 * **HackCheck API Integration** - Verifies if an email address is part of known data breaches
 * **Breach Information** - Provides details about any breaches found
 
-###  Password Strength Suggestions
+### 🔑 Password Strength Suggestions
 * **Improved Password Suggestions** - Suggests stronger passwords based on missing character types
 * **Entropy Enhancements** - Increases password entropy by adding missing complexity
 
@@ -42,6 +42,18 @@ A security tool built to check password strength, verify passwords against breac
 ### Email Breach Checker
 * **check_email_breach(email)** - Uses HackCheck API to check email against known data breaches
 
-<div align="center">
-  <sub> This project is licensed under the MIT License </sub>
-</div>
+### Hash Identifier
+* **identify_hash(hash_input)** - Identifies the type of hash provided using the `hash-identifier` tool. Supports various hash types such as MD5, SHA1, SHA256, etc.
+
+### Hydra Integration
+* **Flexible Execution** run_hydra_attack() allows full control over Hydra attack parameters.
+
+* **Quick Attacks** Predefined SSH and FTP brute force functions for fast setup.
+* **Output Parsing** Extracts valid credentials from Hydra results automatically.
+
+### Acknowledgments
+* **HackCheck API** for breach checking.
+* **hash-identifier** tool for hash identification.
+
+
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
